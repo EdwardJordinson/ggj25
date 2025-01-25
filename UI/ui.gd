@@ -16,7 +16,7 @@ var textArray1 : Array[String] = [
 	"Hello there!",#0
 	"Welcome to Boba Bubble Blast!",#1
 	"Where the boba are bubbles and they blast! ...",#2
-	"...Who wrote this?",#3
+	"...Who wrote this crap?",#3
 	"...Anyway. Use the WASD keys to move our heroin around!",#4
 	"Her name is Jill. This world is her boba bubble dream and its your job to help her make it out safely!",#5
 	"Harness the power of bubbles. And lay down the hurt on the bubble tea gang.",#6
@@ -66,6 +66,29 @@ var timingDict3 : Dictionary = {
 	6 : [[22,23],[1.0,0.05]]
 	
 }
+
+var textArray4 : Array[String] = [
+	
+	
+	
+]
+
+var timeDict4 : Dictionary = {
+	
+	
+}
+
+var textArray5 : Array[String] = [
+	
+	
+	
+]
+
+var timeDict5 : Dictionary = {
+	
+	
+}
+
 
 func _ready() -> void:
 	GameSingleton.areaActive.connect(SetMessage)

@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://Map/area_trigger.gd" id="1_1l866"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8c6qp"]
-size = Vector2(567, 20)
+size = Vector2(722, 20)
 
 [node name="Area_Trigger" type="Area2D"]
 script = ExtResource("1_1l866")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(273.5, 0)
+position = Vector2(351, 0)
 shape = SubResource("RectangleShape2D_8c6qp")

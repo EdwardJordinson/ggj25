@@ -35,7 +35,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
-text = "   Narratator:"
+text = "   Voice:"
 fit_content = true
 tab_size = 5
 context_menu_enabled = true
@@ -43,3 +43,4 @@ shortcut_keys_enabled = false
 
 [node name="RichTextLabel2" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+horizontal_alignment = 1

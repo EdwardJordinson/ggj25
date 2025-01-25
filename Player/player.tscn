@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ch7b3nqfhr4te"]
+[gd_scene load_steps=26 format=3 uid="uid://ch7b3nqfhr4te"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_w6v1b"]
 [ext_resource type="Script" path="res://Player/animated_sprite_2d.gd" id="3_dp1km"]
@@ -27,6 +27,10 @@ region = Rect2(64, 77, 64, 77)
 [sub_resource type="AtlasTexture" id="AtlasTexture_mget6"]
 atlas = ExtResource("3_uaw50")
 region = Rect2(128, 77, 64, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqnua"]
+atlas = ExtResource("3_uaw50")
+region = Rect2(0, 308, 64, 77)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l5q2e"]
 atlas = ExtResource("3_uaw50")
@@ -109,6 +113,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hqnua")
+}],
+"loop": true,
+"name": &"ground_crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_l5q2e")
 }, {
 "duration": 1.0,
@@ -179,7 +191,7 @@ shape = SubResource("RectangleShape2D_na0uw")
 position = Vector2(0, -8)
 scale = Vector2(3, 2.991)
 sprite_frames = SubResource("SpriteFrames_sfy3d")
-animation = &"air_deccent"
+animation = &"ground_crouch"
 script = ExtResource("3_dp1km")
 
 [node name="Gun" type="Node2D" parent="."]

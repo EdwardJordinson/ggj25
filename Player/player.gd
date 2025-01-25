@@ -10,6 +10,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 var facingRight : bool = true
+var iCrouching : bool = false
 
 func _ready() -> void:
 	self.add_to_group("player_body")
@@ -53,12 +54,20 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("space_key") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	
-	var direction := Input.get_axis("left_key", "right_key")
-	if direction:
-		velocity.x = direction * SPEED
+	if Input.is_action_pressed("down_key"):
+		iCrouching = true
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		iCrouching = false
 	
+	if iCrouching == false:
+		area.position = Vector2.ZERO
+		var direction := Input.get_axis("left_key", "right_key")
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+	else:
+		area.position = Vector2.DOWN * 70
+		
 	move_and_slide()
 	
