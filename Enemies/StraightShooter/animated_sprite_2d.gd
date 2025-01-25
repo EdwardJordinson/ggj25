@@ -1,13 +1,13 @@
 extends AnimatedSprite2D
 
 
-var gameBody : CharacterBody2D
+var gameBody : Enemy_Straight_Shooter
 
 func _ready() -> void:
 	pass
 
 
-func Init(newBody : CharacterBody2D):
+func Init(newBody : Enemy_Straight_Shooter):
 	gameBody = newBody
 	
 
@@ -20,11 +20,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if gameBody.is_on_floor() == true:
-		if gameBody.velocity == Vector2.ZERO:
-			play("idle")
-		else:
+		if gameBody.velocity != Vector2.ZERO:
 			play("move")
-	else:
-		play("idle")
 		
 	
