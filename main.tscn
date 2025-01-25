@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr3s1gsu2ysvl"]
+[gd_scene load_steps=5 format=3 uid="uid://dr3s1gsu2ysvl"]
 
 [ext_resource type="PackedScene" uid="uid://dmj0te8268bxk" path="res://Map/map.tscn" id="1_q1vlt"]
 [ext_resource type="PackedScene" uid="uid://ch7b3nqfhr4te" path="res://Player/player.tscn" id="2_7j202"]
 [ext_resource type="PackedScene" uid="uid://85qdx6m31pwx" path="res://Enemies/StraightShooter/enemy_straight_shooter.tscn" id="3_ygr85"]
+[ext_resource type="PackedScene" uid="uid://j40sopt7yh6x" path="res://UI/menu.tscn" id="4_v6wwr"]
 
 [node name="Main" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Menu" parent="CanvasLayer" instance=ExtResource("4_v6wwr")]
+visible = false
 
 [node name="Map" parent="." instance=ExtResource("1_q1vlt")]
 
