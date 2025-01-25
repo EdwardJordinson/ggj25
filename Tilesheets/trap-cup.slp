@@ -1,0 +1,80 @@
+{
+    "project": {
+        "autoExportEnabled": true,
+        "creationVersion": "0.9.0",
+        "currentLayerIndex": 0,
+        "guides": [
+            {
+                "orientation": 2,
+                "position": 64
+            },
+            {
+                "orientation": 2,
+                "position": 128
+            },
+            {
+                "orientation": 2,
+                "position": 192
+            },
+            {
+                "orientation": 1,
+                "position": 64
+            },
+            {
+                "orientation": 1,
+                "position": 128
+            }
+        ],
+        "layers": [
+            {
+                "imageData": "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAACXBIWXMAAAsTAAALEwEAmpwYAAABFUlEQVR4nO3BMQEAAADCoPVP7WsIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAMBPAABPO1TCQAAAABJRU5ErkJggg==",
+                "name": "Layer 1",
+                "opacity": 1,
+                "visible": true
+            },
+            {
+                "imageData": "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAACXBIWXMAAAsTAAALEwEAmpwYAAACAUlEQVR4nO3YsRWCQBAEUDSzAnuyYHuyAkPtQODYg8P5PyY4knkzO00AAAAAAAAAwL+4zH3wfj0/ezykl9v9MfuPkOp69AOA4wgACLaoHp91Bqj/8JsGAMEEAAQTABBs8UY+2x3A/od5GgAEEwAQbFVNPssMUP9hGQ0AggkACCYAINjqrTz6HcD+h+U0AAgmACBYU10edQao/7COBgDBBAAEa67Mo80A9R/W0wAgmACAYAIAgm3azaPcAex/aKMBQDABAME2V+ejZ4D6D+00AAgmACCYAIBgJfv5qDuA/Q/baAAQTABAsLIKvfcMUP9hOw0AggkACCYAIFjpjt7rDmD/Qw0NAIIJAAhWXqV7zwD1H+poABBMAEAwAQDBuuzpXncA+x9qaQAQTABAsG6VunoGqP9QTwOAYAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgPF9AR2/PFg9gktnAAAAAElFTkSuQmCC",
+                "name": "idle",
+                "opacity": 1,
+                "visible": true
+            },
+            {
+                "imageData": "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAACXBIWXMAAAsTAAALEwEAmpwYAAACDElEQVR4nO3Yu3ECQRAEUMAjAnJSwOSkCGSCNSa63yx3V/1eAFtrdXXP5QIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABOuox7++32+Ot+7P36G/RVS3fb+ALAfAQDBhtTq7vpfzADopQFAMAEAwdor9aj6X8wA6KMBQDABAMEEAARr3dOj939xB4AeGgAEEwAQrK1Kf6v+FzMAttMAIJgAgGACAIK17Ohv7//iDgDbaAAQTABAsM0Veq/6X8wAWE8DgGACAIIJAAi2aT/vvf+LOwCsowFAMAEAwVZX56PU/2IGwHIaAAQTABBMAECwVbv5aPu/uAPAMhoABBMAEGxxZT5q/S9mAMynAUAwAQDBFtXlo9f/YgbAPBoABBMAEEwAQLDZW/ks+7+4A8A0DQCCCQAINqsmn63+FzMA/qcBQDABAMEEAASb3Mhn3f/FHQA+0wAgmAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2rwBdQU8WPNsO9MAAAAASUVORK5CYII=",
+                "name": "upside down",
+                "opacity": 1,
+                "visible": true
+            }
+        ],
+        "modificationVersion": "0.9.0",
+        "notes": [
+        ],
+        "swatch": {
+            "colours": [
+            ]
+        },
+        "uiState": {
+            "colourPanelExpanded": true,
+            "firstPane": {
+                "offsetX": 225.9999999999998,
+                "offsetY": 111.40000000000008,
+                "sceneCentered": false,
+                "size": 1,
+                "zoomLevel": 4
+            },
+            "guidesLocked": true,
+            "lastFillToolUsed": "FillTool",
+            "layerListViewContentY": 0,
+            "layerPanelExpanded": true,
+            "mainSplitViewState": "gqJlaW5kZXgAbnByZWZlcnJlZFdpZHRo+0B/gAAAAAAAomVpbmRleAFucHJlZmVycmVkV2lkdGj7QG4AAAAAAAA=",
+            "panelSplitViewState": "gaJlaW5kZXgBb3ByZWZlcnJlZEhlaWdodPtAbIAAAAAAAA==",
+            "secondPane": {
+                "offsetX": -128,
+                "offsetY": 288,
+                "sceneCentered": true,
+                "size": 0,
+                "zoomLevel": 1
+            },
+            "swatchPanelExpanded": false
+        }
+    }
+}

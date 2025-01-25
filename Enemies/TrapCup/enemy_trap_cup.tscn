@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://c314ivmjprltm"]
+
+[ext_resource type="Script" path="res://Enemies/StraightShooter/enemy_straight_shooter.gd" id="1_8a8w3"]
+[ext_resource type="Texture2D" uid="uid://c1km15n3mggr4" path="res://Tilesheets/trap-cup.png" id="2_tbepk"]
+[ext_resource type="Script" path="res://Enemies/StraightShooter/animated_sprite_2d.gd" id="3_7m5cb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_si0ge"]
+size = Vector2(96, 152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qx56x"]
+size = Vector2(96, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf1gq"]
+atlas = ExtResource("2_tbepk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1expi"]
+atlas = ExtResource("2_tbepk")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r03ry"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf1gq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1expi")
+}],
+"loop": true,
+"name": &"trapping",
+"speed": 5.0
+}]
+
+[node name="Enemy_Trap_Cup" type="CharacterBody2D"]
+script = ExtResource("1_8a8w3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_si0ge")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qx56x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_r03ry")
+animation = &"trapping"
+script = ExtResource("3_7m5cb")
+
+[node name="Action_Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Strafe_Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Shoot_Timer" type="Timer" parent="."]
+one_shot = true
