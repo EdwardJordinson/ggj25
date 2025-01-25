@@ -5,9 +5,6 @@ class_name Gun
 
 var playerBody : Player_Body
 
-func _ready() -> void:
-	pass 
-	
 
 func Init(newBody : Player_Body):
 	playerBody = newBody

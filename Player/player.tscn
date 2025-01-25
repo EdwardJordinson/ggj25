@@ -160,11 +160,6 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -178,7 +173,7 @@ shape = SubResource("RectangleShape2D_na0uw")
 position = Vector2(0, -8)
 scale = Vector2(3, 2.991)
 sprite_frames = SubResource("SpriteFrames_sfy3d")
-animation = &"new_animation"
+animation = &"air_accent"
 script = ExtResource("3_dp1km")
 
 [node name="Gun" type="Node2D" parent="."]
