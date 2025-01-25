@@ -98,3 +98,7 @@ shape = SubResource("CircleShape2D_fqgk2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tctsp")
 animation = &"impact"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true

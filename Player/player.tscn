@@ -169,11 +169,17 @@ script = ExtResource("1_w6v1b")
 position = Vector2(0, 28)
 shape = SubResource("RectangleShape2D_na0uw")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 28)
+shape = SubResource("RectangleShape2D_na0uw")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 scale = Vector2(3, 2.991)
 sprite_frames = SubResource("SpriteFrames_sfy3d")
-animation = &"air_accent"
+animation = &"air_deccent"
 script = ExtResource("3_dp1km")
 
 [node name="Gun" type="Node2D" parent="."]

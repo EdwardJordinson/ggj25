@@ -4,6 +4,7 @@ class_name Player_Body
 
 @onready var animationPlayer : AnimatedSprite2D = $AnimatedSprite2D
 @onready var bubbleGun : Gun = $Gun
+@onready var area : Area2D = $Area2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -12,8 +13,10 @@ var facingRight : bool = true
 
 func _ready() -> void:
 	self.add_to_group("player_body")
+	area.add_to_group("player_body")
 	animationPlayer.Init(self)
 	bubbleGun.Init(self)
+	area.area_entered.connect(BeenHit)
 	
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -21,6 +24,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		bubbleGun.Shoot()
 		
 	
+
+func BeenHit(body : Node2D):
+	if body.is_in_group("enemy_bullet"):
+		TakeDamage()
+		
+
+func TakeDamage():
+	GameSingleton.playerHealth -= 5
+	if GameSingleton.playerHealth <= 0:
+		self.queue_free()
+		
 
 func _physics_process(delta: float) -> void:
 	GameSingleton.playerPosition = self.global_position
