@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c314ivmjprltm"]
+[gd_scene load_steps=9 format=3 uid="uid://c314ivmjprltm"]
 
 [ext_resource type="Script" path="res://Enemies/TrapCup/enemy_trap_cup.gd" id="1_fxdqf"]
 [ext_resource type="Texture2D" uid="uid://c1km15n3mggr4" path="res://Tilesheets/trap-cup.png" id="2_tbepk"]
+[ext_resource type="Script" path="res://Enemies/TrapCup/trap_cup_animated_sprite_2d.gd" id="3_ukvmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si0ge"]
 size = Vector2(96, 152)
@@ -53,6 +54,7 @@ position = Vector2(0, -8)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_r03ry")
 animation = &"trapping"
+script = ExtResource("3_ukvmh")
 
 [node name="Action_Timer" type="Timer" parent="."]
 one_shot = true
