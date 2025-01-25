@@ -30,7 +30,7 @@ func _ready() -> void:
 	strafeTimer.timeout.connect(StrafeDone)
 	shootTimer.timeout.connect(ShootDone)
 	stunTimer.timeout.connect(StunDone)
-	stunTimer.set_wait_timer(0.3)
+	stunTimer.set_wait_time(0.3)
 	
 
 

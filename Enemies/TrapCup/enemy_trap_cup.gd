@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy_Trap_Cup
 
 @onready var animationPlayer : AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitBox : Area2D = $Area2D
@@ -19,10 +20,10 @@ func _ready() -> void:
 	self.add_to_group("enemy_body")
 	hitBox.add_to_group("enemy_body")
 	hitBox.area_entered.connect(BulletHit)
-	animationPlayer.Init(self)
-	actionTimer.timeout.connect(ActionDone)
-	strafeTimer.timeout.connect(StrafeDone)
-	shootTimer.timeout.connect(ShootDone)
+	#animationPlayer.Init(self)
+	#actionTimer.timeout.connect(ActionDone)
+	#strafeTimer.timeout.connect(StrafeDone)
+	#shootTimer.timeout.connect(ShootDone)
 	
 
 
