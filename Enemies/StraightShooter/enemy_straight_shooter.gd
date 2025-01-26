@@ -69,7 +69,6 @@ func NewAction():
 	
 
 func HitStunned():
-	print("stunned")
 	self.velocity = Vector2.ZERO
 	animationPlayer.play("hit")
 	stunTimer.start()
@@ -77,7 +76,6 @@ func HitStunned():
 	
 
 func Movement():
-	print("moving")
 	currentAction = "movement"
 	actionDone = false
 	var actionTime :float = randf_range(1.5,3.0)
@@ -87,7 +85,6 @@ func Movement():
 	
 
 func Shooting():
-	print("shooting")
 	currentAction = "shooting"
 	actionDone = false
 	var actionTime :float = randf_range(1.5,3.0)

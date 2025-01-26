@@ -10,7 +10,8 @@ func _ready() -> void:
 
 
 func TriggerArea(body : Node2D):
-	if isTriggered == false:
-		GameSingleton.areaActive.emit(areaToTrigger)
-		isTriggered = true
-	
+	if body.is_in_group("player_body"):
+		if isTriggered == false:
+			GameSingleton.areaActive.emit(areaToTrigger)
+			isTriggered = true
+			

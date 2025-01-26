@@ -36,8 +36,8 @@ areaCode = 2
 
 [node name="Jumpingcup" parent="." instance=ExtResource("6_2i05a")]
 position = Vector2(4138, 185)
-areaCode = 3
+areaCode = 4
 
 [node name="Enemy_Straight_Shooter2" parent="." instance=ExtResource("3_ygr85")]
 position = Vector2(3706, 511)
-areaCode = 3
+areaCode = 4

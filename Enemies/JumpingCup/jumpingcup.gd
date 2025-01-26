@@ -7,6 +7,7 @@ class_name JumpCup
 @onready var areaZone : Area2D = $Area2D
 
 @export var areaCode : int = 0
+
 var isActive : bool = true
 
 var health : int = 20
@@ -20,8 +21,6 @@ var isTrapped : bool = false
 func _ready() -> void:
 	self.add_to_group("enemy_trap")
 	areaZone.add_to_group("enemy_trap")
-	if areaCode == 0:
-		isActive = true
 	areaZone.area_entered.connect(BulletHit)
 	timeDelay.timeout.connect(Active)
 	animationPlayer.animation_finished.connect(AnimDone)
@@ -73,7 +72,7 @@ func JumpFalling(delta):
 	
 
 func AnimDone():
-	velocity = Vector2.UP * 600
+	velocity = Vector2.UP * 400
 	var playerPos = GameSingleton.playerPosition
 	var playerDir : Vector2 = (playerPos - self.global_position)
 	velocity += playerDir

@@ -42,18 +42,73 @@ position = Vector2(8, 600)
 shape = SubResource("WorldBoundaryShape2D_urjpa")
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor"]
-position = Vector2(992, 640)
-scale = Vector2(6.14742, 1)
+position = Vector2(-314.87, 640)
+scale = Vector2(1, 0.96)
 texture = ExtResource("1_65ob2")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Floor"]
-position = Vector2(4128, 640)
-scale = Vector2(6.14742, 1)
+position = Vector2(192, 640)
+scale = Vector2(1, 0.96)
 texture = ExtResource("1_65ob2")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Floor"]
-position = Vector2(7272, 640)
-scale = Vector2(6.14742, 1)
+position = Vector2(704, 640)
+scale = Vector2(1, 0.96)
+texture = ExtResource("1_65ob2")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Floor"]
+position = Vector2(1216, 640)
+scale = Vector2(1, 0.96)
+texture = ExtResource("1_65ob2")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Floor"]
+position = Vector2(1728, 640)
+scale = Vector2(1, 0.96)
+texture = ExtResource("1_65ob2")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Floor"]
+position = Vector2(2240, 640)
+scale = Vector2(1, 0.96)
+texture = ExtResource("1_65ob2")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Floor"]
+position = Vector2(2752, 640)
+scale = Vector2(1, 0.96)
+texture = ExtResource("1_65ob2")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Floor"]
+position = Vector2(3264, 640)
+scale = Vector2(1, 0.96)
+texture = ExtResource("1_65ob2")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Floor"]
+position = Vector2(3776, 640)
+scale = Vector2(1, 0.96)
+texture = ExtResource("1_65ob2")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Floor"]
+position = Vector2(4288, 640)
+scale = Vector2(1, 0.96)
+texture = ExtResource("1_65ob2")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Floor"]
+position = Vector2(4800, 640)
+scale = Vector2(1, 0.96)
+texture = ExtResource("1_65ob2")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Floor"]
+position = Vector2(5312, 640)
+scale = Vector2(1, 0.96)
+texture = ExtResource("1_65ob2")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Floor"]
+position = Vector2(5824, 640)
+scale = Vector2(1, 0.96)
+texture = ExtResource("1_65ob2")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Floor"]
+position = Vector2(6336, 640)
+scale = Vector2(1, 0.96)
 texture = ExtResource("1_65ob2")
 
 [node name="Wall" type="StaticBody2D" parent="."]
@@ -114,7 +169,7 @@ areaToTrigger = 2
 [node name="Area_Trigger3" parent="." instance=ExtResource("1_x22wt")]
 position = Vector2(3200, 256)
 rotation = -0.715585
-areaToTrigger = 3
+areaToTrigger = 4
 
 [node name="Ledge2" type="StaticBody2D" parent="."]
 position = Vector2(2432, 200)
