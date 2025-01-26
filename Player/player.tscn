@@ -1,10 +1,14 @@
-[gd_scene load_steps=28 format=3 uid="uid://ch7b3nqfhr4te"]
+[gd_scene load_steps=32 format=3 uid="uid://ch7b3nqfhr4te"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_w6v1b"]
 [ext_resource type="Texture2D" uid="uid://b373y7pbdxp2q" path="res://Tilesheets/enemy_jumper-Sheet2.png" id="3_bfymy"]
 [ext_resource type="Script" path="res://Player/animated_sprite_2d.gd" id="3_dp1km"]
 [ext_resource type="Texture2D" uid="uid://w8aelxikhmy3" path="res://Tilesheets/bubbleteastory_player.png" id="3_uaw50"]
 [ext_resource type="Script" path="res://Player/gun.gd" id="4_bsjmd"]
+[ext_resource type="AudioStream" uid="uid://ceqr4aeqvbp2b" path="res://Audio/BubbleTeamMainTheme.mp3" id="6_1mxxi"]
+[ext_resource type="AudioStream" uid="uid://d1iry3kuho1rm" path="res://Audio/shot_enemy.wav" id="6_ho33q"]
+[ext_resource type="AudioStream" uid="uid://dqhwuoajcxj4j" path="res://Audio/cuptraptrapped.wav" id="8_b5xco"]
+[ext_resource type="AudioStream" uid="uid://bpjcmpl4vsdj3" path="res://Audio/cuptrapavoid.wav" id="9_g3h4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_na0uw"]
 size = Vector2(96, 152)
@@ -209,3 +213,15 @@ script = ExtResource("3_dp1km")
 
 [node name="Gun" type="Node2D" parent="."]
 script = ExtResource("4_bsjmd")
+
+[node name="GunSfxPlayer2D" type="AudioStreamPlayer2D" parent="Gun"]
+stream = ExtResource("6_ho33q")
+
+[node name="MainMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_1mxxi")
+
+[node name="TrappedSfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_b5xco")
+
+[node name="AvoidedTrapSfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_g3h4g")

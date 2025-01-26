@@ -7,4 +7,3 @@ signal gamePause()
 
 var playerPosition : Vector2 = Vector2.ZERO
 var playerHealth : int = 20
-

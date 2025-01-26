@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() != true:
 		JumpFalling(delta)
 	else:
+		
 		if actionDone == true and stunned == false and isActive == true:
 			TryJump(delta)
 	

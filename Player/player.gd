@@ -23,6 +23,7 @@ func _ready() -> void:
 	bubbleGun.Init(self)
 	area.area_entered.connect(BeenHit)
 	
+	$MainMusicPlayer.play()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shift_right_key"):
@@ -36,6 +37,7 @@ func BeenHit(body : Node2D):
 	elif body.is_in_group("enemy_trap") and body.get_parent().isTrapping == true:
 		trapped = true
 		breakoutCount = 0
+		$TrappedSfxPlayer.play()
 		
 
 func TakeDamage():

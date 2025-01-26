@@ -1,27 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr3s1gsu2ysvl"]
+[gd_scene load_steps=5 format=3 uid="uid://dr3s1gsu2ysvl"]
 
-[ext_resource type="PackedScene" uid="uid://cu5b7h6rxpn2g" path="res://UI/UI.tscn" id="1_br3d8"]
 [ext_resource type="PackedScene" uid="uid://dmj0te8268bxk" path="res://Map/map.tscn" id="1_q1vlt"]
 [ext_resource type="PackedScene" uid="uid://ch7b3nqfhr4te" path="res://Player/player.tscn" id="2_7j202"]
 [ext_resource type="PackedScene" uid="uid://85qdx6m31pwx" path="res://Enemies/StraightShooter/enemy_straight_shooter.tscn" id="3_ygr85"]
-
-[ext_resource type="Texture2D" uid="uid://d0hcyygper1w7" path="res://Tilesheets/milkWorld.PNG" id="4_v3gpu"]
-[ext_resource type="PackedScene" uid="uid://dlrjj1uow84q1" path="res://Enemies/JumpingCup/jumpingcup.tscn" id="6_2i05a"]
+[ext_resource type="PackedScene" uid="uid://j40sopt7yh6x" path="res://UI/menu.tscn" id="4_v6wwr"]
 
 [node name="Main" type="Node"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(4007.5, -988.25)
-scale = Vector2(5.54954, 3.48601)
-texture = ExtResource("4_v3gpu")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Ui" parent="CanvasLayer" instance=ExtResource("1_br3d8")]
+[node name="Menu" parent="CanvasLayer" instance=ExtResource("4_v6wwr")]
+visible = false
 
 [node name="Map" parent="." instance=ExtResource("1_q1vlt")]
 
@@ -32,13 +21,4 @@ position = Vector2(153, 92)
 position = Vector2(0, -100)
 
 [node name="Enemy_Straight_Shooter" parent="." instance=ExtResource("3_ygr85")]
-position = Vector2(1611, 508)
-areaCode = 2
-
-[node name="Jumpingcup" parent="." instance=ExtResource("6_2i05a")]
-position = Vector2(4138, 185)
-areaCode = 4
-
-[node name="Enemy_Straight_Shooter2" parent="." instance=ExtResource("3_ygr85")]
-position = Vector2(3706, 511)
-areaCode = 4
+position = Vector2(584, 100)
