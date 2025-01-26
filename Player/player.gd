@@ -14,6 +14,7 @@ func _ready() -> void:
 	self.add_to_group("player_body")
 	animationPlayer.Init(self)
 	bubbleGun.Init(self)
+	GameSingleton.player = self
 	
 
 func _unhandled_input(event: InputEvent) -> void:
