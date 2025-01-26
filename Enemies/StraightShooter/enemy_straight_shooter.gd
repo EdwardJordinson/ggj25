@@ -35,6 +35,7 @@ func _ready() -> void:
 	shootTimer.timeout.connect(ShootDone)
 	stunTimer.timeout.connect(StunDone)
 	stunTimer.set_wait_time(0.5)
+
 	
 
 

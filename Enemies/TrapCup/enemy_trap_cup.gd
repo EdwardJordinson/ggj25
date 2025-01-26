@@ -1,10 +1,11 @@
 extends CharacterBody2D
+class_name Enemy_Trap_Cup
 
 @onready var animationPlayer : AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitBox : Area2D = $Area2D
-@onready var strafeTimer : Timer = $Strafe_Timer
-@onready var shootTimer : Timer = $Shoot_Timer
-@onready var actionTimer : Timer = $Action_Timer
+@onready var shakeTimer : Timer
+#@onready var shootTimer : Timer = $Shoot_Timer
+@onready var actionTimer : Timer
 
 var health : int = 20
 var speed : int = 100
@@ -16,28 +17,32 @@ var currentAction : String = "idle"
 var actionDone : bool = true
 
 func _ready() -> void:
+	actionTimer = Timer.new()
+	shakeTimer = Timer.new()
+	
 	self.add_to_group("enemy_body")
 	hitBox.add_to_group("enemy_body")
 	hitBox.area_entered.connect(BulletHit)
 	animationPlayer.Init(self)
+	animationPlayer.animation_finished.connect(AnimationFinished)
 	actionTimer.timeout.connect(ActionDone)
-	strafeTimer.timeout.connect(StrafeDone)
-	shootTimer.timeout.connect(ShootDone)
+	#shakeTimer.timeout.connect(ShakeDone)
+	#shootTimer.timeout.connect(ShootDone)
 	
 
 
 func _physics_process(delta: float) -> void:
-	#Check what direction is faced
-	if velocity.x < 0:
-		facingRight = true
-	elif velocity.x > 0:
-		facingRight = false
-	
-	if is_on_floor() != true:
+	#print("in _physics_process is_on_floor():", is_on_floor())
+	if !is_on_floor():
 		velocity += get_gravity() * delta
 	else:
 		if actionDone == true:
 			NewAction()
+	#Check what direction is faced
+	#if velocity.x < 0:
+		#facingRight = true
+	#elif velocity.x > 0:
+		#facingRight = false
 	
 	move_and_slide()
 	
@@ -47,53 +52,55 @@ func NewAction():
 	var randNumber : int = randi_range(0,1)
 	match randNumber:
 		0:
-			currentAction = "move"
-			Movement()
-		1: 
-			currentAction = "shoot"
-			Shooting()
+			currentAction = "shake"
+			Shake()
+		#1: 
+			#currentAction = "shake"
+			#Shooting()
 	
 
-func Movement():
-	print("moving")
+func Shake():
+	print("trap cup is shaking")
+	if (!is_instance_valid(GameSingleton.player)):
+		# The player is dead.
+		return
+		
+	# The player is alive; try to jump on them.
+	animationPlayer.play("shake")
 	actionDone = false
-	var actionTime :float = randf_range(1.5,3.0)
-	actionTimer.set_wait_time(actionTime)
-	actionTimer.start()
-	StrafeDone()
+	shakeTimer.set_wait_time(2)
+	shakeTimer.start()
 	
+#func ShakeDone():
+	#jumpTimer.set_wait_time(strafeTime)
+	#jumpTimer.start()
+	#if facingRight == true:
+		#self.velocity.x = 100
+	#else:
+		#self.velocity.x = -100
 	
 	
 
-func Shooting():
-	print("shooting")
-	actionDone = false
-	var actionTime :float = randf_range(1.5,3.0)
-	actionTimer.set_wait_time(actionTime)
-	actionTimer.start()
-	ShootDone()
-	
-
-func StrafeDone():
-	var strafeTime : float = randf_range(0.5, 1.0)
-	strafeTimer.set_wait_time(strafeTime)
-	strafeTimer.start()
-	if facingRight == true:
-		self.velocity.x = 100
-	else:
-		self.velocity.x = -100
-	
-
-func ShootDone():
-	var shootTime : float = 7.5
-	shootTimer.set_wait_time(shootTime)
-	shootTimer.start()
+#func Shooting():
+	#print("shooting")
+	#actionDone = false
+	#var actionTime :float = randf_range(1.5,3.0)
+	#actionTimer.set_wait_time(actionTime)
+	#actionTimer.start()
+	#ShootDone()
+#
+#func ShootDone():
+	#var shootTime : float = 7.5
+	#shootTimer.set_wait_time(shootTime)
+	#shootTimer.start()
 	
 
 func ActionDone():
 	actionDone = true
 	
 
+func AnimationFinished():
+	print("anim finished")
 
 func BulletHit(body : Node2D):
 	if body.is_in_group("player_bullet"):
