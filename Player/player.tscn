@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ch7b3nqfhr4te"]
+[gd_scene load_steps=34 format=3 uid="uid://ch7b3nqfhr4te"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_w6v1b"]
 [ext_resource type="Texture2D" uid="uid://b373y7pbdxp2q" path="res://Tilesheets/enemy_jumper-Sheet2.png" id="3_bfymy"]
@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://d1iry3kuho1rm" path="res://Audio/shot_enemy.wav" id="6_ho33q"]
 [ext_resource type="AudioStream" uid="uid://dqhwuoajcxj4j" path="res://Audio/cuptraptrapped.wav" id="8_b5xco"]
 [ext_resource type="AudioStream" uid="uid://bpjcmpl4vsdj3" path="res://Audio/cuptrapavoid.wav" id="9_g3h4g"]
+[ext_resource type="AudioStream" uid="uid://dik2qkk2plu2s" path="res://Audio/player_shot.wav" id="10_qw46c"]
+[ext_resource type="AudioStream" uid="uid://bme25h54f4js6" path="res://Audio/Landing_after_Jump.wav" id="11_djfgd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_na0uw"]
 size = Vector2(96, 152)
@@ -225,3 +227,9 @@ stream = ExtResource("8_b5xco")
 
 [node name="AvoidedTrapSfxPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_g3h4g")
+
+[node name="DamagedSfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_qw46c")
+
+[node name="LandedSfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_djfgd")

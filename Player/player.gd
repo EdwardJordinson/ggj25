@@ -16,6 +16,8 @@ var iCrouching : bool = false
 var breakoutCount : int = 0
 var trapped = false
 
+var playedLandedSfx : bool = false
+
 func _ready() -> void:
 	self.add_to_group("player_body")
 	area.add_to_group("player_body")
@@ -41,6 +43,7 @@ func BeenHit(body : Node2D):
 		
 
 func TakeDamage():
+	$DamagedSfxPlayer.play()
 	GameSingleton.playerHealth -= 5
 	if GameSingleton.playerHealth <= 0:
 		self.queue_free()
@@ -66,7 +69,11 @@ func _physics_process(delta: float) -> void:
 		facingRight = false
 	
 	if is_on_floor() != true:
+		playedLandedSfx = false
 		velocity += get_gravity() * delta
+	elif (!playedLandedSfx):
+		$LandedSfxPlayer.play()
+		playedLandedSfx = true
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("space_key") and is_on_floor():
