@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr3s1gsu2ysvl"]
+[gd_scene load_steps=7 format=3 uid="uid://dr3s1gsu2ysvl"]
 
 [ext_resource type="PackedScene" uid="uid://dmj0te8268bxk" path="res://Map/map.tscn" id="1_q1vlt"]
 [ext_resource type="PackedScene" uid="uid://ch7b3nqfhr4te" path="res://Player/player.tscn" id="2_7j202"]
 [ext_resource type="PackedScene" uid="uid://85qdx6m31pwx" path="res://Enemies/StraightShooter/enemy_straight_shooter.tscn" id="3_ygr85"]
 [ext_resource type="PackedScene" uid="uid://j40sopt7yh6x" path="res://UI/menu.tscn" id="4_v6wwr"]
+[ext_resource type="AudioStream" uid="uid://bjcr5uf4lbtl2" path="res://Audio/player_dies.wav" id="6_mf7se"]
+[ext_resource type="AudioStream" uid="uid://cdbk3y7yhnju3" path="res://Audio/Enemy_die.wav" id="7_8d26j"]
 
 [node name="Main" type="Node"]
 
@@ -22,3 +24,9 @@ position = Vector2(0, -100)
 
 [node name="Enemy_Straight_Shooter" parent="." instance=ExtResource("3_ygr85")]
 position = Vector2(584, 100)
+
+[node name="PlayerDeathSfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mf7se")
+
+[node name="EnemyDeathSfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_8d26j")

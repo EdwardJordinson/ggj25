@@ -153,4 +153,5 @@ func Killed():
 	if areaCode == 2:
 		GameSingleton.areaActive.emit(3)
 	self.queue_free()
+	$/root/Main/EnemyDeathSfxPlayer.play()
 	

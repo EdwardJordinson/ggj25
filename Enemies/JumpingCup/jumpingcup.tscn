@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dlrjj1uow84q1"]
+[gd_scene load_steps=13 format=3 uid="uid://dlrjj1uow84q1"]
 
 [ext_resource type="Script" path="res://Enemies/JumpingCup/jumpingcup.gd" id="1_3m5uq"]
 [ext_resource type="Texture2D" uid="uid://cxdlokfrnx1ip" path="res://Tilesheets/enemy_jumper2.png" id="1_bi5iy"]
 [ext_resource type="AudioStream" uid="uid://blb4aol5esq7v" path="res://Audio/enemy_jump.wav" id="3_jf2al"]
-[ext_resource type="AudioStream" uid="uid://cdbk3y7yhnju3" path="res://Audio/Enemy_die.wav" id="4_kmtx1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2kdy"]
 size = Vector2(37.5415, 54.1528)
@@ -94,6 +93,3 @@ shape = SubResource("RectangleShape2D_b1504")
 
 [node name="JumpSfxPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_jf2al")
-
-[node name="DeathSfxPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_kmtx1")

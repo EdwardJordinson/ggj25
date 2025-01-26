@@ -63,8 +63,6 @@ func TryJump(delta):
 	rotation = 0.0
 	velocity = Vector2.ZERO
 	animationPlayer.play("jump")
-	if (!$JumpSfxPlayer2D.playing):
-		$JumpSfxPlayer2D.play()
 	
 
 func JumpFalling(delta):
@@ -80,7 +78,8 @@ func AnimDone():
 	velocity += playerDir
 	actionDone = false
 	timeDelay.start()
-	
+	if (!$JumpSfxPlayer2D.playing):
+		$JumpSfxPlayer2D.play()
 
 
 func BulletHit(body : Node2D):
@@ -93,7 +92,6 @@ func BulletHit(body : Node2D):
 func TakeDamage():
 	health -= 5
 	if health <= 0:
-		# TODO: won't work; need to parent it to the scene
-		#$DeathSfxPlayer2D.play()
 		self.queue_free()
+		$/root/Main/EnemyDeathSfxPlayer.play()
 	

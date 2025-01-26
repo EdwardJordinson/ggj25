@@ -30,7 +30,6 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shift_right_key"):
 		bubbleGun.Shoot()
-		
 	
 
 func BeenHit(body : Node2D):
@@ -47,7 +46,7 @@ func TakeDamage():
 	GameSingleton.playerHealth -= 5
 	if GameSingleton.playerHealth <= 0:
 		self.queue_free()
-		
+		$/root/Main/PlayerDeathSfxPlayer.play()
 
 func _physics_process(delta: float) -> void:
 	GameSingleton.playerPosition = self.global_position
