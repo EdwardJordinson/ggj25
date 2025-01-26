@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://j40sopt7yh6x"]
+[gd_scene load_steps=4 format=3 uid="uid://j40sopt7yh6x"]
 
 [ext_resource type="Script" path="res://UI/menu.gd" id="1_s5r0d"]
+[ext_resource type="Texture2D" uid="uid://oeqxdro37ner" path="res://UI/image.jpg" id="2_scdlh"]
+[ext_resource type="FontFile" uid="uid://bt4wrr010l624" path="res://UI/BubbleBobble-rg3rx.ttf" id="3_ou1fi"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -11,12 +13,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s5r0d")
 
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(577.5, 324.5)
+scale = Vector2(1.12207, 0.839844)
+texture = ExtResource("2_scdlh")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_left = -3.0
-offset_top = 171.0
-offset_right = 353.0
-offset_bottom = 482.0
+offset_left = 110.0
+offset_top = 10.0
+offset_right = 1000.0
+offset_bottom = 519.0
 theme_override_constants/margin_left = 120
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 120
@@ -27,30 +34,35 @@ layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Bubbly Demise
+theme_override_fonts/normal_font = ExtResource("3_ou1fi")
+theme_override_font_sizes/normal_font_size = 100
+text = "Bubble Tea Story
  "
 fit_content = true
 autowrap_mode = 0
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ou1fi")
 text = "Play"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ou1fi")
 text = "Options"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ou1fi")
 text = "Quit"
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 visible = false
 layout_mode = 0
-offset_left = -3.0
-offset_top = 172.0
-offset_right = 353.0
-offset_bottom = 448.0
+offset_left = 109.0
+offset_top = 10.0
+offset_right = 999.0
+offset_bottom = 508.0
 theme_override_constants/margin_left = 120
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 120
@@ -61,17 +73,57 @@ layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Bubbly Demise
+theme_override_fonts/normal_font = ExtResource("3_ou1fi")
+theme_override_font_sizes/normal_font_size = 100
+text = "Bubble Tea Story
  "
 fit_content = true
 autowrap_mode = 0
 
 [node name="Credits" type="Button" parent="MarginContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ou1fi")
 text = "Credits"
 
 [node name="Back" type="Button" parent="MarginContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ou1fi")
+text = "Back"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 230.0
+offset_top = 90.0
+offset_right = 903.0
+offset_bottom = 720.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_ou1fi")
+theme_override_font_sizes/normal_font_size = 100
+text = "Bubble Tea Story
+ "
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_ou1fi")
+text = "Krish
+Mitch
+Jarkko
+Eltino
+Edward"
+fit_content = true
+
+[node name="Back2" type="Button" parent="MarginContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ou1fi")
 text = "Back"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
@@ -79,3 +131,4 @@ text = "Back"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer3/VBoxContainer/Back2" to="." method="_on_back_2_pressed"]
