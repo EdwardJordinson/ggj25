@@ -37,7 +37,8 @@ func _physics_process(delta: float) -> void:
 			play("ground_moving")
 		if playerbody.iCrouching == true:
 			play("ground_crouch")
-			
+		if playerbody.trapped == true:
+			play("trapped")
 		
 	
 

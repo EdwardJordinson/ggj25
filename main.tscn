@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr3s1gsu2ysvl"]
+[gd_scene load_steps=7 format=3 uid="uid://dr3s1gsu2ysvl"]
 
 [ext_resource type="PackedScene" uid="uid://cu5b7h6rxpn2g" path="res://UI/UI.tscn" id="1_br3d8"]
 [ext_resource type="PackedScene" uid="uid://dmj0te8268bxk" path="res://Map/map.tscn" id="1_q1vlt"]
 [ext_resource type="PackedScene" uid="uid://ch7b3nqfhr4te" path="res://Player/player.tscn" id="2_7j202"]
 [ext_resource type="PackedScene" uid="uid://85qdx6m31pwx" path="res://Enemies/StraightShooter/enemy_straight_shooter.tscn" id="3_ygr85"]
 [ext_resource type="Texture2D" uid="uid://d0hcyygper1w7" path="res://Tilesheets/milkWorld.PNG" id="4_v3gpu"]
+[ext_resource type="PackedScene" uid="uid://dlrjj1uow84q1" path="res://Enemies/JumpingCup/jumpingcup.tscn" id="6_2i05a"]
 
 [node name="Main" type="Node"]
 
@@ -13,8 +14,8 @@
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(598, 256)
-scale = Vector2(1.53044, 1)
+position = Vector2(4007.5, -988.25)
+scale = Vector2(5.54954, 3.48601)
 texture = ExtResource("4_v3gpu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -32,3 +33,15 @@ position = Vector2(0, -100)
 [node name="Enemy_Straight_Shooter" parent="." instance=ExtResource("3_ygr85")]
 position = Vector2(1611, 508)
 areaCode = 2
+
+[node name="Jumpingcup" parent="." instance=ExtResource("6_2i05a")]
+position = Vector2(3841, 501)
+areaCode = 3
+
+[node name="Enemy_Straight_Shooter2" parent="." instance=ExtResource("3_ygr85")]
+position = Vector2(4146, 364)
+areaCode = 3
+
+[node name="Jumpingcup2" parent="." instance=ExtResource("6_2i05a")]
+position = Vector2(611, 114)
+areaCode = 4

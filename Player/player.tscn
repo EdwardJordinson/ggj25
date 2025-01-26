@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://ch7b3nqfhr4te"]
+[gd_scene load_steps=28 format=3 uid="uid://ch7b3nqfhr4te"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_w6v1b"]
+[ext_resource type="Texture2D" uid="uid://b373y7pbdxp2q" path="res://Tilesheets/enemy_jumper-Sheet2.png" id="3_bfymy"]
 [ext_resource type="Script" path="res://Player/animated_sprite_2d.gd" id="3_dp1km"]
 [ext_resource type="Texture2D" uid="uid://w8aelxikhmy3" path="res://Tilesheets/bubbleteastory_player.png" id="3_uaw50"]
 [ext_resource type="Script" path="res://Player/gun.gd" id="4_bsjmd"]
@@ -83,6 +84,10 @@ region = Rect2(256, 231, 64, 77)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4sqni"]
 atlas = ExtResource("3_uaw50")
 region = Rect2(320, 231, 64, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nt4m"]
+atlas = ExtResource("3_bfymy")
+region = Rect2(640, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sfy3d"]
 animations = [{
@@ -172,6 +177,14 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nt4m")
+}],
+"loop": true,
+"name": &"trapped",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -191,7 +204,7 @@ shape = SubResource("RectangleShape2D_na0uw")
 position = Vector2(0, -8)
 scale = Vector2(3, 2.991)
 sprite_frames = SubResource("SpriteFrames_sfy3d")
-animation = &"ground_crouch"
+animation = &"trapped"
 script = ExtResource("3_dp1km")
 
 [node name="Gun" type="Node2D" parent="."]

@@ -25,6 +25,7 @@ player_body="player tea good guy"
 enemy_body="bubble tea bad guys"
 enemy_bullet=""
 player_bullet=""
+enemy_trap="jumping cup"
 
 [input]
 

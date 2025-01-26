@@ -37,13 +37,13 @@ func _physics_process(delta: float) -> void:
 		
 
 func ContactObject(body : Node2D):
-	if body.is_in_group("enemy_body") == true:
+	if body.is_in_group("enemy_body") == true or body.is_in_group("enemy_trap") == true:
 		return
 	Impact()
 	
 
 func ContactArea(body : Node2D):
-	if body.is_in_group("enemy_body") == true:
+	if body.is_in_group("enemy_body") == true or body.is_in_group("enemy_trap") == true:
 		Impact()
 	
 

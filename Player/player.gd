@@ -7,10 +7,14 @@ class_name Player_Body
 @onready var area : Area2D = $Area2D
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -500.0
 
 var facingRight : bool = true
 var iCrouching : bool = false
+
+
+var breakoutCount : int = 0
+var trapped = false
 
 func _ready() -> void:
 	self.add_to_group("player_body")
@@ -29,6 +33,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func BeenHit(body : Node2D):
 	if body.is_in_group("enemy_bullet"):
 		TakeDamage()
+	elif body.is_in_group("enemy_trap") and body.get_parent().isTrapping == true:
+		trapped = true
+		breakoutCount = 0
 		
 
 func TakeDamage():
@@ -40,12 +47,21 @@ func TakeDamage():
 func _physics_process(delta: float) -> void:
 	GameSingleton.playerPosition = self.global_position
 	
+	if trapped == true:
+		self.rotation = +PI
+		animationPlayer.play("trapped")
+		if Input.is_action_just_pressed("shift_right_key"):
+			breakoutCount += 1
+		if breakoutCount >= 5:
+			trapped = false
+			self.rotation = 0.0
+		return
+	
 	#Check what direction is faced
 	if velocity.x < 0:
 		facingRight = true
 	elif velocity.x > 0:
 		facingRight = false
-	
 	
 	if is_on_floor() != true:
 		velocity += get_gravity() * delta
