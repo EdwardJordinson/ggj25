@@ -2,6 +2,7 @@ extends Area2D
 class_name Bullet
 
 @onready var animationPlayer : AnimatedSprite2D = $AnimatedSprite2D
+@onready var timer : Timer = $Timer
 
 var speed : float = 750.0
 var shootRight : bool = true
@@ -15,10 +16,12 @@ func _ready() -> void:
 	self.area_entered.connect(ContactArea)
 	animationPlayer.animation_finished.connect(FreeObject)
 	animationPlayer.play("flying")
+	timer.timeout.connect(TimeUP)
 	if shootRight != true:
 		animationPlayer.flip_h = false
 	else:
 		animationPlayer.flip_h = true
+	timer.start()
 	
 
 func Init(isRight : bool):
@@ -34,13 +37,13 @@ func _physics_process(delta: float) -> void:
 		
 
 func ContactObject(body : Node2D):
-	if body.is_in_group("enemy_body") == true:
+	if body.is_in_group("enemy_body") == true or body.is_in_group("enemy_trap") == true:
 		return
 	Impact()
 	
 
 func ContactArea(body : Node2D):
-	if body.is_in_group("enemy_body") == true:
+	if body.is_in_group("enemy_body") == true or body.is_in_group("enemy_trap") == true:
 		Impact()
 	
 
@@ -51,6 +54,10 @@ func Impact():
 	else:
 		rotation += PI/2
 	animationPlayer.play("impact")
+	
+
+func TimeUP():
+	Impact()
 	
 
 func FreeObject():
