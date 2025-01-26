@@ -11,6 +11,8 @@ func Init(newBody : Player_Body):
 	
 
 func Shoot():
+	$GunSfxPlayer2D.play()
+	
 	var newBullet : Bullet = bullet.instantiate()
 	newBullet.Init(playerBody.facingRight)
 	self.add_child(newBullet)

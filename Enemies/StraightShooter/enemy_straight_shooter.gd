@@ -9,6 +9,9 @@ class_name Enemy_Straight_Shooter
 @onready var actionTimer : Timer = $Action_Timer
 @onready var stunTimer : Timer = $Action_Timer
 
+@export var areaCode : int = 0
+var isActive : bool = false
+
 var health : int = 20
 var speed : int = 100
 
@@ -20,6 +23,7 @@ var actionDone : bool = true
 var stunned : bool = false
 
 func _ready() -> void:
+	GameSingleton.areaActive.connect(setActive)
 	self.add_to_group("enemy_body")
 	hitBox.add_to_group("enemy_body")
 	hitBox.area_entered.connect(BulletHit)
@@ -30,7 +34,8 @@ func _ready() -> void:
 	strafeTimer.timeout.connect(StrafeDone)
 	shootTimer.timeout.connect(ShootDone)
 	stunTimer.timeout.connect(StunDone)
-	stunTimer.set_wait_time(0.3)
+	stunTimer.set_wait_time(0.5)
+
 	
 
 
@@ -43,25 +48,35 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() != true:
 		velocity += get_gravity() * delta
 	else:
-		if actionDone == true and stunned == false:
+		if actionDone == true and stunned == false and isActive == true:
 			NewAction()
 	
 	move_and_slide()
 	
 
+func setActive(areaID : int):
+	if areaCode == areaID:
+		isActive = true
+	
+
 func NewAction():
-	var randNumber : int = randi_range(0,1)
-	match randNumber:
-		0:
-			currentAction = "move"
-			Movement()
-		1: 
-			currentAction = "shoot"
-			Shooting()
+	var randNumber : int = randi_range(0,10)
+	if randNumber > 3:
+		currentAction = "shoot"
+		Shooting()
+	else:
+		currentAction = "move"
+		Movement()
+	
+
+func HitStunned():
+	self.velocity = Vector2.ZERO
+	animationPlayer.play("hit")
+	stunTimer.start()
+	stunned = true
 	
 
 func Movement():
-	print("moving")
 	currentAction = "movement"
 	actionDone = false
 	var actionTime :float = randf_range(1.5,3.0)
@@ -71,7 +86,6 @@ func Movement():
 	
 
 func Shooting():
-	print("shooting")
 	currentAction = "shooting"
 	actionDone = false
 	var actionTime :float = randf_range(1.5,3.0)
@@ -111,6 +125,7 @@ func LookAtPlayer():
 
 func StunDone():
 	animationPlayer.play("idle")
+	stunned = false
 	
 
 func AnimationDone():
@@ -124,17 +139,18 @@ func ActionDone():
 func BulletHit(body : Node2D):
 	if body.is_in_group("player_bullet"):
 		TakeDamage()
-		
+	
+	
 
 func TakeDamage():
 	health -= 5
-	animationPlayer.play("hit")
 	if health <= 0:
 		Killed()
-	stunTimer.start()
-	stunned = true
+	HitStunned()
 	
 
 func Killed():
+	if areaCode == 2:
+		GameSingleton.areaActive.emit(3)
 	self.queue_free()
 	
