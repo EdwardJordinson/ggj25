@@ -14,6 +14,7 @@ func _ready() -> void:
 	self.add_to_group("player_body")
 	animationPlayer.Init(self)
 	bubbleGun.Init(self)
+	GameSingleton.player = self
 	
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -23,6 +24,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	GameSingleton.playerPosition = self.global_position
 	
 	#Check what direction is faced
 	if velocity.x < 0:

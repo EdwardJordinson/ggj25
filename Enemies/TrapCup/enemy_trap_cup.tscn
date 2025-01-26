@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c314ivmjprltm"]
+[gd_scene load_steps=17 format=3 uid="uid://c314ivmjprltm"]
 
-[ext_resource type="Script" path="res://Enemies/StraightShooter/enemy_straight_shooter.gd" id="1_8a8w3"]
+[ext_resource type="Script" path="res://Enemies/TrapCup/enemy_trap_cup.gd" id="1_fxdqf"]
 [ext_resource type="Texture2D" uid="uid://c1km15n3mggr4" path="res://Tilesheets/trap-cup.png" id="2_tbepk"]
-[ext_resource type="Script" path="res://Enemies/StraightShooter/animated_sprite_2d.gd" id="3_7m5cb"]
+[ext_resource type="Script" path="res://Enemies/TrapCup/trap_cup_animated_sprite_2d.gd" id="3_ukvmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si0ge"]
 size = Vector2(96, 152)
@@ -14,9 +14,41 @@ size = Vector2(96, 152)
 atlas = ExtResource("2_tbepk")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1expi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhngg"]
 atlas = ExtResource("2_tbepk")
 region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boj4j"]
+atlas = ExtResource("2_tbepk")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvifa"]
+atlas = ExtResource("2_tbepk")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7gaa"]
+atlas = ExtResource("2_tbepk")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsxln"]
+atlas = ExtResource("2_tbepk")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2l841"]
+atlas = ExtResource("2_tbepk")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8wjq"]
+atlas = ExtResource("2_tbepk")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j12md"]
+atlas = ExtResource("2_tbepk")
+region = Rect2(448, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qill1"]
+atlas = ExtResource("2_tbepk")
+region = Rect2(0, 128, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r03ry"]
 animations = [{
@@ -30,15 +62,44 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1expi")
+"texture": SubResource("AtlasTexture_qhngg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boj4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvifa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7gaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsxln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2l841")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8wjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j12md")
 }],
 "loop": true,
-"name": &"trapping",
+"name": &"shake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qill1")
+}],
+"loop": true,
+"name": &"trapped",
 "speed": 5.0
 }]
 
 [node name="Enemy_Trap_Cup" type="CharacterBody2D"]
-script = ExtResource("1_8a8w3")
+script = ExtResource("1_fxdqf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
@@ -53,14 +114,13 @@ shape = SubResource("RectangleShape2D_qx56x")
 position = Vector2(0, -8)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_r03ry")
-animation = &"trapping"
-script = ExtResource("3_7m5cb")
+animation = &"shake"
+frame_progress = 0.253488
+speed_scale = 8.0
+script = ExtResource("3_ukvmh")
 
 [node name="Action_Timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="Strafe_Timer" type="Timer" parent="."]
-one_shot = true
-
-[node name="Shoot_Timer" type="Timer" parent="."]
 one_shot = true
