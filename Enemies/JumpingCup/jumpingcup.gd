@@ -73,9 +73,9 @@ func JumpFalling(delta):
 	
 
 func AnimDone():
-	velocity = Vector2.UP * 450
+	velocity = Vector2.UP * 600
 	var playerPos = GameSingleton.playerPosition
-	var playerDir : Vector2 = (playerPos - self.global_position)/2
+	var playerDir : Vector2 = (playerPos - self.global_position)
 	velocity += playerDir
 	actionDone = false
 	timeDelay.start()

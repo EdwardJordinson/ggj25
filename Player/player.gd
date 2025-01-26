@@ -7,7 +7,7 @@ class_name Player_Body
 @onready var area : Area2D = $Area2D
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -500.0
+const JUMP_VELOCITY = -700.0
 
 var facingRight : bool = true
 var iCrouching : bool = false
