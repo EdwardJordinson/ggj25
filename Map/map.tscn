@@ -158,7 +158,7 @@ rotation = 1.5708
 texture = ExtResource("3_oyukl")
 
 [node name="Area_Trigger" parent="." instance=ExtResource("1_x22wt")]
-position = Vector2(-280, 584)
+position = Vector2(96, 584)
 areaToTrigger = 1
 
 [node name="Area_Trigger2" parent="." instance=ExtResource("1_x22wt")]
@@ -170,6 +170,15 @@ areaToTrigger = 2
 position = Vector2(3200, 256)
 rotation = -0.715585
 areaToTrigger = 4
+
+[node name="Area_Trigger4" parent="." instance=ExtResource("1_x22wt")]
+position = Vector2(4848, 760)
+rotation = -1.55334
+areaToTrigger = 5
+
+[node name="Area_Trigger5" parent="." instance=ExtResource("1_x22wt")]
+position = Vector2(5936, 216)
+areaToTrigger = 6
 
 [node name="Ledge2" type="StaticBody2D" parent="."]
 position = Vector2(2432, 200)
@@ -254,3 +263,36 @@ position = Vector2(5856, 32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
 position = Vector2(438, 444)
 shape = SubResource("RectangleShape2D_olexl")
+
+[node name="Ledge9" type="StaticBody2D" parent="."]
+position = Vector2(5696, 376)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ledge9"]
+position = Vector2(-197.5, 63)
+shape = SubResource("RectangleShape2D_5kml0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ledge9"]
+position = Vector2(-200, 64)
+texture = ExtResource("3_oyukl")
+
+[node name="Ledge10" type="StaticBody2D" parent="."]
+position = Vector2(6120, 256)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ledge10"]
+position = Vector2(-197.5, 63)
+shape = SubResource("RectangleShape2D_5kml0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ledge10"]
+position = Vector2(-200, 64)
+texture = ExtResource("3_oyukl")
+
+[node name="Ledge11" type="StaticBody2D" parent="."]
+position = Vector2(6448, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ledge11"]
+position = Vector2(-197.5, 63)
+shape = SubResource("RectangleShape2D_5kml0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ledge11"]
+position = Vector2(-200, 64)
+texture = ExtResource("3_oyukl")

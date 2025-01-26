@@ -210,7 +210,7 @@ shape = SubResource("RectangleShape2D_na0uw")
 position = Vector2(0, -8)
 scale = Vector2(3, 2.991)
 sprite_frames = SubResource("SpriteFrames_sfy3d")
-animation = &"idle"
+animation = &"trapped"
 script = ExtResource("3_dp1km")
 
 [node name="Gun" type="Node2D" parent="."]

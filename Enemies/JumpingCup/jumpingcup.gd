@@ -8,9 +8,9 @@ class_name JumpCup
 
 @export var areaCode : int = 0
 
-var isActive : bool = true
+var isActive : bool = false
 
-var health : int = 20
+var health : int = 50
 
 var actionDone : bool = true
 var stunned : bool = false
@@ -22,6 +22,7 @@ func _ready() -> void:
 	self.add_to_group("enemy_trap")
 	areaZone.add_to_group("enemy_trap")
 	areaZone.area_entered.connect(BulletHit)
+	GameSingleton.areaActive.connect(setActive)
 	timeDelay.timeout.connect(Active)
 	animationPlayer.animation_finished.connect(AnimDone)
 	

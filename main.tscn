@@ -1,31 +1,92 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr3s1gsu2ysvl"]
+[gd_scene load_steps=17 format=3 uid="uid://dr3s1gsu2ysvl"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_2l0vq"]
+[ext_resource type="PackedScene" uid="uid://cu5b7h6rxpn2g" path="res://UI/UI.tscn" id="1_br3d8"]
 [ext_resource type="PackedScene" uid="uid://dmj0te8268bxk" path="res://Map/map.tscn" id="1_q1vlt"]
 [ext_resource type="PackedScene" uid="uid://ch7b3nqfhr4te" path="res://Player/player.tscn" id="2_7j202"]
+[ext_resource type="PackedScene" uid="uid://b2tvfxb077yy4" path="res://moviePlayer/Movieplayer.tscn" id="3_u6khm"]
 [ext_resource type="PackedScene" uid="uid://85qdx6m31pwx" path="res://Enemies/StraightShooter/enemy_straight_shooter.tscn" id="3_ygr85"]
+[ext_resource type="Texture2D" uid="uid://d0hcyygper1w7" path="res://Tilesheets/milkWorld.PNG" id="4_v3gpu"]
 [ext_resource type="PackedScene" uid="uid://j40sopt7yh6x" path="res://UI/menu.tscn" id="4_v6wwr"]
+[ext_resource type="PackedScene" uid="uid://dqvbvlkrqoj1n" path="res://moviePlayer/endMovie.tscn" id="5_p13nj"]
+[ext_resource type="PackedScene" uid="uid://dlrjj1uow84q1" path="res://Enemies/JumpingCup/jumpingcup.tscn" id="6_e4w7e"]
 [ext_resource type="AudioStream" uid="uid://bjcr5uf4lbtl2" path="res://Audio/player_dies.wav" id="6_mf7se"]
 [ext_resource type="AudioStream" uid="uid://cdbk3y7yhnju3" path="res://Audio/Enemy_die.wav" id="7_8d26j"]
+[ext_resource type="Texture2D" uid="uid://ctp3eav87xw7p" path="res://Tilesheets/result.png" id="10_w4c55"]
+[ext_resource type="Script" path="res://god.gd" id="10_w7yq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjthe"]
+size = Vector2(103, 479)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52yup"]
+size = Vector2(38, 488)
 
 [node name="Main" type="Node"]
+script = ExtResource("1_2l0vq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Ui" parent="CanvasLayer" instance=ExtResource("1_br3d8")]
+
 [node name="Menu" parent="CanvasLayer" instance=ExtResource("4_v6wwr")]
+
+[node name="Movieplayer" parent="CanvasLayer" instance=ExtResource("3_u6khm")]
+
+[node name="EndMovie" parent="CanvasLayer" instance=ExtResource("5_p13nj")]
+visible = false
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(4007.5, -988.25)
+scale = Vector2(5.54954, 3.48601)
+texture = ExtResource("4_v3gpu")
 
 [node name="Map" parent="." instance=ExtResource("1_q1vlt")]
 
 [node name="Player" parent="." instance=ExtResource("2_7j202")]
-position = Vector2(153, 92)
+position = Vector2(-78, 167)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -100)
 
+[node name="Jumpingcup" parent="." instance=ExtResource("6_e4w7e")]
+position = Vector2(4148, 188)
+areaCode = 4
+
 [node name="Enemy_Straight_Shooter" parent="." instance=ExtResource("3_ygr85")]
-position = Vector2(584, 100)
+position = Vector2(1467, 489)
+areaCode = 2
 
 [node name="PlayerDeathSfxPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_mf7se")
 
 [node name="EnemyDeathSfxPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_8d26j")
+
+[node name="Enemy_Straight_Shooter2" parent="." instance=ExtResource("3_ygr85")]
+position = Vector2(3706, 511)
+areaCode = 4
+
+[node name="God" type="StaticBody2D" parent="."]
+position = Vector2(6261, -259)
+script = ExtResource("10_w7yq4")
+
+[node name="Sprite2D" type="Sprite2D" parent="God"]
+position = Vector2(251, 220)
+texture = ExtResource("10_w4c55")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="God"]
+position = Vector2(146, 248)
+shape = SubResource("RectangleShape2D_tjthe")
+
+[node name="Area2D" type="Area2D" parent="God"]
+scale = Vector2(1.17597, 1.00869)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="God/Area2D"]
+position = Vector2(77, 245)
+shape = SubResource("RectangleShape2D_52yup")

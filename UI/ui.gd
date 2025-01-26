@@ -68,27 +68,68 @@ var timingDict3 : Dictionary = {
 }
 
 var textArray4 : Array[String] = [
-	
-	
+	"No way. Two more?!",
+	"That one JUMPING?! WHAT IS WRONG WITH THIS PLACE!",
+	"Dont let it land on you!"
 	
 ]
 
-var timeDict4 : Dictionary = {
+var timingDict4 : Dictionary = {
 	
 	
 }
 
 var textArray5 : Array[String] = [
-	
-	
+	"The way up looks be it.",
+	"Lets get out of here",
+	"What is wrong with you Jill anyway?",
+	"Why are you obsessed with bubble tea?",
+	"I think you have a problem"
 	
 ]
 
-var timeDict5 : Dictionary = {
+var timingDict5 : Dictionary = {
 	
 	
 }
 
+var textArray6 : Array[String] = [
+	"Oh look, its a bubble tea god.",
+	"Of course a bubble tea god would be here.",
+	"Uh hello? God? Can you help us out?",
+	
+	
+]
+
+var timingDict6 : Dictionary = {
+	
+	
+}
+
+#God talking
+var textArray7 : Array[String] = [
+	"YOU HAVE KILLED MY CHILDREN!",
+	"FOR THIS, I DECREE...",
+	"YOU SHALL NOW DIE!"
+	
+]
+
+var timingDict7 : Dictionary = {
+	
+	
+}
+
+#Voice talking
+var textArray8 : Array[String] = [
+	"I dont know what to do, shoot it and Jill might wake up.",
+	"Or not, anything will be better than staying here honestly"
+	
+]
+
+var timingDict8 : Dictionary = {
+	
+	
+}
 
 func _ready() -> void:
 	GameSingleton.areaActive.connect(SetMessage)
@@ -111,7 +152,32 @@ func SetMessage(arrayToRead : int):
 			currentArray = 3
 			currentTimingDict = timingDict3
 			Start(textArray3, 3)
-	
+		4:
+			defaultTiming = 0.05
+			currentArray = 4
+			currentTimingDict = timingDict4
+			Start(textArray4, 4)
+		5:
+			defaultTiming = 0.05
+			currentArray = 5
+			currentTimingDict = timingDict5
+			Start(textArray5, 5)
+		6:
+			defaultTiming = 0.05
+			currentArray = 6
+			currentTimingDict = timingDict6
+			Start(textArray6, 6)
+		7:
+			defaultTiming = 0.05
+			currentArray = 7
+			currentTimingDict = timingDict7
+			Start(textArray7, 7)
+		8:
+			defaultTiming = 0.05
+			currentArray = 8
+			currentTimingDict = timingDict8
+			Start(textArray8, 8)
+			
 
 func Start(stringArray : Array[String], arrayNum : int):
 	for index in stringArray.size():
@@ -119,7 +185,12 @@ func Start(stringArray : Array[String], arrayNum : int):
 			return
 		textLine.text = stringArray[index]
 		await TextLoop(index, stringArray[index], arrayNum)
-	
+	if arrayNum == 6:
+		title.text = "Bubble Tea God:"
+		SetMessage(7)
+	elif arrayNum == 7:
+		title.text = "Voice:"
+		SetMessage(8)
 
 func TextLoop(lineCount : int, text : String, arrayNum : int):
 	textTimer.set_wait_time(defaultTiming)
